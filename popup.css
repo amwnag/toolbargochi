@@ -1,0 +1,29 @@
+
+
+#buttons-row {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center;
+    gap: 50px;
+}
+
+button {
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.518) ;
+    box-shadow: 0 0 0 1px gray;
+    background-color: gold;
+    content-visibility: hidden;
+    border-radius: 10px;
+    min-height: 20px;
+    min-width: 20px;
+}
+
+button:hover {
+    
+    transition: 0.2s;
+}
+
+button:active {
+    background-color: yellow;
+}
