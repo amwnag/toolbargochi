@@ -5,12 +5,12 @@
     flex-direction: row; 
     justify-content: center; 
     gap: 30px;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .rounded {
-    border-radius: 25px;
-    box-shadow: 0 0 0 2px gray;
+    border-radius: 20px;
+    box-shadow: 0 0 0 2px navy;
 }
 
 .egg-body {
@@ -18,18 +18,25 @@
     padding: 25px;
     display: flex;
     flex-direction: column;
-    background-color: aqua;
+    background-color: rebeccapurple;
     min-width: 200px;
     min-height: 250px;
     justify-content: space-between;
 }
 
 .display-window {
-    background-color: seagreen;
+    display: flex;
+    align-items: center;
+    background-color: lightseagreen;
     min-height: 200px;
     min-width: 100px;
     box-shadow: inset 2px 2px 2px 2px black;
     outline: solid navy 2px;
+}
+
+.buddy {
+    margin: auto;
+    width: 60%;
 }
 
 button {
@@ -38,7 +45,7 @@ button {
     background-color: gold;
     content-visibility: hidden;
     border-radius: 10px;
-    min-height: 20px;
+    min-height: 25px;
     min-width: 40px;
 }
 
