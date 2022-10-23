@@ -8,6 +8,14 @@
     margin-bottom: 5px;
 }
 
+#buttons-labels {
+    display: flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    gap: 45px;
+    margin: -5px 0 10px 0;
+}
+
 .rounded {
     border-radius: 20px;
     box-shadow: 0 0 0 2px navy;
@@ -26,6 +34,7 @@
 
 .display-window {
     display: flex;
+    flex-direction: column;
     align-items: center;
     background-color: lightseagreen;
     min-height: 200px;
