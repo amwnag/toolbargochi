@@ -39,7 +39,7 @@
     width: 60%;
 }
 
-button {
+.yellow-button {
     border: solid rgba(255, 255, 255, 0.518) 2px;
     box-shadow: 0 0 1px 2px gray;
     background-color: gold;
@@ -49,12 +49,12 @@ button {
     min-width: 40px;
 }
 
-button:hover {
+.yellow-button:hover {
     
     transition: 0.2s;
 }
 
-button:active {
+.yellow-button:active {
     background-color: yellow;
 }
 

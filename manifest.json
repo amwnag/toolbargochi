@@ -13,7 +13,13 @@
         "48": "images/icon-48.png",
         "128": "images/icon-128.png"
     },
-
+    "permissions" : [
+        "background",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
     "options_ui": {
         "page": "options.html",
         "open_in_tab": false
