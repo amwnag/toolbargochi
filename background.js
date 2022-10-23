@@ -30,6 +30,9 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         
     } else if (request.message == 'GET_HEALTH') {
         sendResponse({value: health});
+    } else if (request.message == 'GET_BUDDY_STATE') {
+        let state = health / 33.4; // gets a number between 0-3
+        sendResponse({state: state})
     }
 })
 
@@ -67,7 +70,7 @@ function updateHealthContinuously() {
 
 function updateHealth() {
     let currentTime = new Date();
-    if (timeDifference(currentTime, tabTime) >= 5) {
+    if (timeDifference(currentTime, tabTime) >= 1) {
         if (blockedTab) {
             decreaseHealth();
         } else {

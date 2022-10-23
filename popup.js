@@ -27,10 +27,24 @@ function displayHealth() {
     });
 }
 
+function displayBuddy() {
+    chrome.runtime.sendMessage({message: 'GET_BUDDY_STATE'}, function(response) {
+        const buddy = document.getElementsByClassName("buddy")[0];
+        if (response.state < 1) {
+            buddy.src = "./images/spritesad.png"; 
+        } else if (response.state < 2) {
+            buddy.src = "./images/sprite2.png"; 
+        } else {
+            buddy.src = "./images/spritehappy.png"; 
+        }
+    });
+}
+
 function updateDisplay() {
     displayStartButtonIcon();
     displayTimePassed();
     displayHealth();
+    displayBuddy();
 }
 
 const startButton = document.getElementById("start-button");
