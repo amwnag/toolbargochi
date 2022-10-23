@@ -80,3 +80,16 @@
     background-color: darkgoldenrod;
 }
 
+.counter {
+    font-family: 'Press Start 2P';
+    font-size: 13px;
+    position: absolute;
+}
+
+#time {
+    left: 45px;
+}
+
+#health {
+    right: 45px;
+}

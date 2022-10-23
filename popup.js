@@ -16,14 +16,15 @@ function displayStartButtonIcon() {
 function displayTimePassed() {
     chrome.runtime.sendMessage({message: 'GET_TIME_PASSED'}, function(response) {
         const timeLabel = document.getElementById("time");
-        timeLabel.innerHTML = response.value;
+        let formattedTime = new Date(response.value * 1000).toISOString().substring(14, 19);
+        timeLabel.innerHTML = formattedTime;
     });
 }
 
 function displayHealth() {
     chrome.runtime.sendMessage({message: 'GET_HEALTH'}, function(response) {
         const healthLabel = document.getElementById("health");
-        healthLabel.innerHTML = response.value;
+        healthLabel.innerHTML = "HP:" + response.value;
     });
 }
 

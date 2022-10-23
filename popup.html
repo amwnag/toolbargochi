@@ -4,10 +4,18 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./popup.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="egg-body rounded">
             <div class="display-window rounded">
+                <!-- <h3>Time</h3> -->
+                <p id="time" class="counter"></p>
+                <!-- <h3>Health</h3> -->
+                <p id="health" class="counter"></p>
+
                 <img class="buddy idle" />
                 <div id="buttons-labels">
                     <img id="start-stop-icon"/>
@@ -22,11 +30,6 @@
             </div>
             
         </div>
-
-        <h3>Time</h3>
-        <p id="time"></p>
-        <h3>Health</h3>
-        <p id="health"></p>
 
         <script src="./popup.js" type="module"></script>
     </body>
