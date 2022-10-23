@@ -63,11 +63,11 @@
 }
 
 .yellow-button:hover {
-    
+    outline: solid white 1px;
     transition: 0.2s;
 }
 
 .yellow-button:active {
-    background-color: yellow;
+    background-color: darkgoldenrod;
 }
 
