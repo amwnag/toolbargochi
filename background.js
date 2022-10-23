@@ -5,20 +5,22 @@ let tabTime;
 let blockedTab;
 let health = 50;
 
+let blockedWebsites = ["https://www.youtube.com/", "https://www.reddit.com/", "https://twitter.com/", "https://www.instagram.com/"];
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     if (request == 'PRESS_STOPWATCH') {
         if (started) {
             started = false;
             timePassed = 0;
-            console.log("here")
-
         } else {
             started = true;
             startTime = new Date();
             tabTime = startTime;
-            blockedTab = true;
             updateHealthContinuously();
+            blockedTab = false;
         }
+    } else if (request.message == 'GET_START_STOP') {
+        sendResponse({started: started});
     } else if (request.message == 'GET_TIME_PASSED') {
         if (started) {
             let currentTime = new Date();
@@ -31,15 +33,30 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     }
 })
 
+// async function getCurrentTab() {
+//         let queryOptions = { active: true, lastFocusedWindow: true };
+//         // `tab` will either be a `tabs.Tab` instance or `undefined`.
+//         let [tab] = await chrome.tabs.query(queryOptions);
+//         return tab;
+// }
+
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     tabTime = new Date();
     chrome.tabs.get(activeInfo.tabId, function(tab) {
-        console.log(tab.url);
+        blockedTab = checkForBlockedWebsite(tab.url);
     })
 });
 
+function checkForBlockedWebsite(tabURL) {
+    for (let i = 0; i < blockedWebsites.length; i++) {
+        if (tabURL.includes(blockedWebsites[i])) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function updateHealthContinuously() {
-    console.log("started? ", started)
     const healthUpdater = setInterval(() => {
         updateHealth()
         if (!started) {
@@ -63,9 +80,10 @@ function updateHealth() {
 function increaseHealth() {
     if (health <= 95) {
         health += 5;
-    } else if (health >= 100) {
-        health = 50;
-    }
+    } 
+    // else if (health >= 100) {
+    //     health = 50;
+    // }
 }
 
 function decreaseHealth() {
