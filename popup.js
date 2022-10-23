@@ -2,13 +2,13 @@ function pressStopwatch() {
     chrome.runtime.sendMessage('PRESS_STOPWATCH');
 }
 
-function displayStartButtonText() {
+function displayStartButtonIcon() {
     chrome.runtime.sendMessage({message: 'GET_START_STOP'}, function(response) {
-        const startButton = document.getElementById("start-button");
+        let startIcon = document.getElementById("start-stop-icon");
         if (response.started) {
-            startButton.innerHTML = "Stop"; 
+            startIcon.src = "./images/buttonstop.png"; 
         } else if (!response.started) {
-            startButton.innerHTML = "Start"; 
+            startIcon.src = "./images/buttonstart.png"; 
         }
     });
 }
@@ -28,7 +28,7 @@ function displayHealth() {
 }
 
 function updateDisplay() {
-    displayStartButtonText();
+    displayStartButtonIcon();
     displayTimePassed();
     displayHealth();
 }
